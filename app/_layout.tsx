@@ -1,24 +1,47 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+// app/_layout.tsx
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { Stack } from "expo-router";
+import Header from "../app/components/Header";
 
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+const LOGO = require("../assets/img/Home Dry Forest.png");
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <Stack>
+
+      <Stack.Screen
+        name="index"
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="home"
+        options={{
+          header: () => (
+            <Header
+              title="Home"
+              username="User name"
+              logo={LOGO}
+            />
+          ),
+        }}
+      />
+
+       <Stack.Screen
+        name="reboisement"
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="patrouille"
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="suivi-pepiniere"
+        options={{ headerShown: false }}
+      />
+
+    </Stack>
   );
 }
