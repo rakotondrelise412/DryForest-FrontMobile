@@ -1,57 +1,130 @@
 import { StyleSheet } from "react-native";
 
-export default StyleSheet.create({
-    bg: {
-      flex: 1,
-      resizeMode: "cover",
-      backgroundColor: "#8e4f3f", // fallback
-    },
-    overlay: {
-      flex: 1,
-      alignItems: "center",
-      justifyContent: "center",
-      paddingHorizontal: 20,
-    },
-    welcome1: {
-      color: "#fff",
-      fontSize: 36,
-      fontWeight: "900",
-      letterSpacing: 2,
-      marginBottom: 6,
-      textAlign: "center",
-    },
-    welcome2: {
-      color: "#fff",
-      fontSize: 24,
-      fontWeight: "700",
-      marginBottom: 6,
-      textAlign: "center",
-    },
-    welcome3: {
-      color: "#fff",
-      fontSize: 32,
-      fontWeight: "900",
-      marginBottom: 30,
-      textAlign: "center",
-    },
-    buttons: {
-      width: "100%",
-      alignItems: "center",
-      gap: 14,
-    },
-    btn: {
-      backgroundColor: "#C36922",
-      paddingVertical: 12,
-      paddingHorizontal: 28,
-      borderRadius: 20,
-      minWidth: 200,
-      alignItems: "center",
-      elevation: 3,
-    },
-    btnText: {
-      color: "#fff",
-      fontWeight: "700",
-      fontSize: 16,
-    },
-  });
-  
+const COLORS = {
+  primary: "#8e4f3f",
+  white: "#fff",
+  accent: "#C36922",
+
+  overlay: "rgba(142, 79, 63, 0.78)",
+  whiteTransparent: "rgba(255, 255, 255, 0.15)",
+  whiteBorder: "rgba(255, 255, 255, 0.18)",
+};
+
+export const styles = StyleSheet.create({
+  bg: {
+    flex: 1,
+    backgroundColor: COLORS.primary,
+  },
+
+  backgroundImage: {
+    opacity: 0.2,
+  },
+
+  overlay: {
+    flex: 1,
+    backgroundColor: COLORS.overlay,
+    paddingHorizontal: 22,
+    paddingTop: 16,
+    paddingBottom: 12,
+  },
+
+  topBar: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+
+  appName: {
+    color: COLORS.white,
+    fontSize: 20,
+    fontWeight: "bold",
+    letterSpacing: 1.5,
+  },
+
+  appSubtitle: {
+    color: COLORS.white,
+    fontSize: 13,
+    marginTop: 3,
+    opacity: 0.8,
+  },
+
+  logoutButton: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: COLORS.whiteTransparent,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  content: {
+    flexGrow: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 28,
+  },
+
+  welcome1: {
+    color: COLORS.white,
+    fontSize: 29,
+    fontWeight: "bold",
+    letterSpacing: 3,
+    textAlign: "center",
+  },
+
+  welcome2: {
+    color: COLORS.white,
+    fontSize: 18,
+    marginTop: 4,
+    opacity: 0.8,
+  },
+
+  welcome3: {
+    color: COLORS.accent,
+    fontSize: 36,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginTop: 4,
+  },
+
+  description: {
+    color: COLORS.white,
+    fontSize: 14,
+    textAlign: "center",
+    lineHeight: 22,
+    marginTop: 14,
+    marginBottom: 28,
+  },
+
+  buttons: {
+    width: "100%",
+    gap: 12,
+  },
+
+  button: {
+    minHeight: 55,
+    paddingHorizontal: 16,
+    borderRadius: 12,
+    backgroundColor: COLORS.accent,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+    borderWidth: 1,
+    borderColor: COLORS.whiteBorder,
+  },
+
+  buttonText: {
+    flex: 1,
+    color: COLORS.white,
+    fontSize: 15,
+    fontWeight: "600",
+  },
+
+  footer: {
+    color: COLORS.white,
+    fontSize: 11,
+    textAlign: "center",
+    paddingVertical: 6,
+    opacity: 0.8,
+  },
+});
