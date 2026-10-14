@@ -1,12 +1,27 @@
+
 export interface LoginRequest {
   username: string;
   password: string;
 }
 
 export interface LoginResponse {
-  message: string;
-  data: {
-    accessToken: string;
-  };
-  timestamp: string;
+  id_user: number;
+  username: string;
+  id_person: number;
+  role: string;
+  token: string;
+  expires_at: string;
 }
+
+// export interface LoginRequest {
+//   username: string;
+//   password: string;
+// }
+
+// export interface LoginResponse {
+//   id_user: number;
+//   username: string;
+//   id_person: number;
+//   role: string;
+//   token: string;
+// }
