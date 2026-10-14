@@ -37,7 +37,6 @@ export default function HomePage() {
       resizeMode="cover"
     >
       <View style={styles.overlay}>
-        {/* En-tête */}
         <View style={styles.topBar}>
           <View>
             <Text style={styles.appName}>DRY FOREST</Text>
