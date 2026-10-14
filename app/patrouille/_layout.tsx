@@ -4,7 +4,7 @@ import { Drawer } from "expo-router/drawer";
 import { StyleSheet } from "react-native";
 import Menu from "../components/MonitoringHeader";
 
-const LOGO = require("../../assets/img/Home Dry Forest.png");
+const LOGO = require("../../assets/img/Home_Dry_Forest.png");
 
 export default function PatrouilleLayout() {
   return (

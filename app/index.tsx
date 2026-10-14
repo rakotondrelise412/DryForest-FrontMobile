@@ -18,7 +18,7 @@ import styles from "../assets/css/login";
 import { login } from "../services/auth.service";
 import { saveToken } from "../utils/storage";
 
-const TREE_IMAGE = require("../assets/img/Home Dry Forest.png");
+const TREE_IMAGE = require("../assets/img/Home_Dry_Forest.png");
 
 export default function LoginScreen() {
   const router = useRouter();

@@ -3,7 +3,7 @@
 import { Stack } from "expo-router";
 import Header from "../app/components/Header";
 
-const LOGO = require("../assets/img/Home Dry Forest.png");
+const LOGO = require("../assets/img/Home_Dry_Forest.png");
 
 export default function RootLayout() {
   return (
