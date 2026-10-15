@@ -38,69 +38,79 @@ export default function LoginScreen() {
   const [showPassword, setShowPassword] = useState(false);
   const [loadingText, setLoadingText] = useState("Connexion");
 
-  const handleLogin = async () => {
-    setUsernameError("");
-    setPasswordError("");
-    setLoginError("");
+ 
+  
+const handleLogin = async () => {
+  setUsernameError("");
+  setPasswordError("");
+  setLoginError("");
 
-    if (!username.trim()) {
-      setUsernameError("Le nom d'utilisateur est obligatoire.");
-    }
+  if (!username.trim()) {
+    setUsernameError("Le nom d'utilisateur est obligatoire.");
+  }
 
-    if (!password.trim()) {
-      setPasswordError("Le mot de passe est obligatoire.");
-    }
+  if (!password.trim()) {
+    setPasswordError("Le mot de passe est obligatoire.");
+  }
 
-    if (!username.trim() || !password.trim()) {
-      return;
-    }
+  if (!username.trim() || !password.trim()) {
+    return;
+  }
 
-    try {
-      setLoading(true);
+  // Enregistrer l'heure de début de la connexion
+  const startTime = Date.now();
 
-      Keyboard.dismiss();
+  try {
+    setLoading(true);
+    Keyboard.dismiss();
 
-      const response = await login({
-        username: username.trim(),
-        password,
-      });
+    const response = await login({
+      username: username.trim(),
+      password,
+    });
 
-      await saveToken(response.token);
+    await saveToken(response.token);
 
-      router.replace("/(app)/home");
-    } catch (error: any) {
-      if (error.response) {
-        const status = error.response.status;
+    router.replace("/(app)/home");
+  } catch (error: any) {
+    if (error.response) {
+      const status = error.response.status;
 
-        if (status === 401 || status === 403) {
-          setUsernameError("Nom d'utilisateur ou mot de passe incorrect.");
-          setPasswordError("Nom d'utilisateur ou mot de passe incorrect.");
-          setLoginError("");
-        } else if (status === 404) {
-          setUsernameError("Nom d'utilisateur introuvable.");
-        } else if (status >= 500) {
-          setLoginError(
-            "Une erreur est survenue sur le serveur. Veuillez réessayer.",
-          );
-        } else {
-          setLoginError("Une erreur est survenue. Veuillez réessayer.");
-        }
+      if (status === 401 || status === 403) {
+        setUsernameError(
+          "Nom d'utilisateur ou mot de passe incorrect."
+        );
+        setPasswordError(
+          "Nom d'utilisateur ou mot de passe incorrect."
+        );
+      } else if (status === 404) {
+        setUsernameError("Nom d'utilisateur introuvable.");
+      } else if (status >= 500) {
+        setLoginError(
+          "Une erreur est survenue sur le serveur. Veuillez réessayer."
+        );
       } else {
         setLoginError(
-          "Impossible de contacter le serveur. Vérifiez votre connexion.",
+          "Une erreur est survenue. Veuillez réessayer."
         );
       }
-    } finally {
-      const elapsed = Date.now() - startTime;
-      const remaining = Math.max(0, 4000 - elapsed);
-
-      if (remaining > 0) {
-        await new Promise((resolve) => setTimeout(resolve, remaining));
-      }
-
-      setLoading(false);
+    } else {
+      setLoginError(
+        "Impossible de contacter le serveur. Vérifiez votre connexion."
+      );
     }
-  };
+  } finally {
+    const elapsed = Date.now() - startTime;
+    const remaining = Math.max(0, 4000 - elapsed);
+
+    if (remaining > 0) {
+      await new Promise((resolve) => setTimeout(resolve, remaining));
+    }
+
+    setLoading(false);
+  }
+};
+
 
   useEffect(() => {
     if (!loading) {

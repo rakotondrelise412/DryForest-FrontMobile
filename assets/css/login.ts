@@ -131,8 +131,20 @@ export const styles = StyleSheet.create({
     borderRadius: 12,
     paddingHorizontal: 16,
     color: COLORS.text,
+    outlineColor: "#D99A55",
     fontSize: 15,
   },
+
+  passwordInput: {
+  flex: 1,
+  height: 52,
+  paddingHorizontal: 16,
+  color: COLORS.text,
+  fontSize: 15,
+  outlineColor: "#D99A55",
+  borderTopLeftRadius: 12,
+  borderBottomLeftRadius: 12,
+},
 
   inputError: {
     borderWidth: 2,
@@ -150,13 +162,6 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  passwordInput: {
-    flex: 1,
-    height: 52,
-    paddingHorizontal: 16,
-    color: COLORS.text,
-    fontSize: 15,
-  },
 
   eyeButton: {
     width: 48,
