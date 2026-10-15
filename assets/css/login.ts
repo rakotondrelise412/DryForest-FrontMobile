@@ -84,7 +84,7 @@ export const styles = StyleSheet.create({
     paddingTop: 26,
     paddingBottom: 24,
     borderWidth: 1,
-    borderColor: "#D99A55",
+    borderColor: COLORS.inputBorder,
     elevation: 5,
     shadowColor: COLORS.shadow,
     shadowOffset: { width: 0, height: 5 },
@@ -122,33 +122,34 @@ export const styles = StyleSheet.create({
     marginBottom: 9,
   },
 
-  input: {
+  usersInput: {
     width: "100%",
-    height: 54,
-    backgroundColor: COLORS.placeholder,
-    borderWidth: 1,
-    borderColor: COLORS.textSecondary,
-    borderRadius: 12,
+    height: 52,
     paddingHorizontal: 16,
     color: COLORS.text,
-    outlineColor: "#D99A55",
+    outlineColor: COLORS.inputBorder,
     fontSize: 15,
+     borderTopRightRadius: 12,
+    borderBottomRightRadius: 12,
   },
 
   passwordInput: {
-  flex: 1,
-  height: 52,
-  paddingHorizontal: 16,
-  color: COLORS.text,
-  fontSize: 15,
-  outlineColor: "#D99A55",
-  borderTopLeftRadius: 12,
-  borderBottomLeftRadius: 12,
-},
+    flex: 1,
+    height: 52,
+    paddingHorizontal: 16,
+    color: COLORS.text,
+    fontSize: 15,
+    outlineColor: COLORS.inputBorder,
+  },
 
   inputError: {
     borderWidth: 2,
     borderColor: COLORS.error,
+  },
+
+  inputIcon: {
+    marginLeft: 14,
+    marginRight: 10,
   },
 
   passwordInputContainer: {
@@ -160,8 +161,8 @@ export const styles = StyleSheet.create({
     borderRadius: 12,
     flexDirection: "row",
     alignItems: "center",
+    height: 52,
   },
-
 
   eyeButton: {
     width: 48,

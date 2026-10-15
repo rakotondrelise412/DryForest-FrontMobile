@@ -7,12 +7,20 @@ import type { LoginFormProps } from "../../models/login.model";
 
 export default function LoginForm(props: LoginFormProps) {
   const {
-    username, setUsername,
-    password, setPassword,
-    showPassword, setShowPassword,
-    loading, loadingText,
-    usernameError, passwordError, loginError,
-    setUsernameError, setPasswordError, setLoginError,
+    username,
+    setUsername,
+    password,
+    setPassword,
+    showPassword,
+    setShowPassword,
+    loading,
+    loadingText,
+    usernameError,
+    passwordError,
+    loginError,
+    setUsernameError,
+    setPasswordError,
+    setLoginError,
     handleLogin,
   } = props;
 
@@ -22,32 +30,46 @@ export default function LoginForm(props: LoginFormProps) {
     <View style={styles.formContainer}>
       <View style={styles.headingContainer}>
         <Text style={styles.title}>Bienvenue !</Text>
-        <Text style={styles.subtitle}>
-          Connectez-vous à votre espace.
-        </Text>
+        <Text style={styles.subtitle}>Connectez-vous à votre espace.</Text>
       </View>
 
       <View style={styles.fieldContainer}>
         {/* eslint-disable-next-line react/no-unescaped-entities */}
         <Text style={styles.label}>Nom d'utilisateur</Text>
-        <TextInput
-          style={[styles.input, !!usernameError && styles.inputError]}
-          placeholder="Saisissez votre identifiant"
-          placeholderTextColor={COLORS.textSecondary}
-          value={username}
-          onChangeText={text => {
-            setUsername(text);
-            setUsernameError("");
-            clearLoginError();
-          }}
-          autoCapitalize="none"
-          autoCorrect={false}
-          autoComplete="username"
-          textContentType="username"
-          returnKeyType="next"
-          editable={!loading}
-          accessibilityLabel="Nom d'utilisateur"
-        />
+
+        <View
+          style={[
+            styles.passwordInputContainer,
+            !!usernameError && styles.inputError,
+          ]}
+        >
+          <Ionicons
+            name="person-outline"
+            size={21}
+            color={COLORS.textSecondary}
+            style={styles.inputIcon}
+          />
+
+          <TextInput
+            style={styles.usersInput}
+            placeholder="Saisissez votre identifiant"
+            placeholderTextColor={COLORS.textSecondary}
+            value={username}
+            onChangeText={(text) => {
+              setUsername(text);
+              setUsernameError("");
+              clearLoginError();
+            }}
+            autoCapitalize="none"
+            autoCorrect={false}
+            autoComplete="username"
+            textContentType="username"
+            returnKeyType="next"
+            editable={!loading}
+            accessibilityLabel="Nom d'utilisateur"
+          />
+        </View>
+
         {!!usernameError && (
           <Text style={styles.errorText} accessibilityRole="alert">
             {usernameError}
@@ -58,16 +80,24 @@ export default function LoginForm(props: LoginFormProps) {
       <View style={styles.fieldContainer}>
         <Text style={styles.label}>Mot de passe</Text>
 
-        <View style={[
-          styles.passwordInputContainer,
-          !!passwordError && styles.inputError,
-        ]}>
+        <View
+          style={[
+            styles.passwordInputContainer,
+            !!passwordError && styles.inputError,
+          ]}
+        >
+          <Ionicons
+            name="lock-closed-outline"
+            size={21}
+            color={COLORS.textSecondary}
+            style={styles.inputIcon}
+          />
           <TextInput
             style={styles.passwordInput}
             placeholder="Saisissez votre mot de passe"
             placeholderTextColor={COLORS.textSecondary}
             value={password}
-            onChangeText={text => {
+            onChangeText={(text) => {
               setPassword(text);
               setPasswordError("");
               clearLoginError();
@@ -90,7 +120,9 @@ export default function LoginForm(props: LoginFormProps) {
             activeOpacity={0.7}
             accessibilityRole="button"
             accessibilityLabel={
-              showPassword ? "Masquer le mot de passe" : "Afficher le mot de passe"
+              showPassword
+                ? "Masquer le mot de passe"
+                : "Afficher le mot de passe"
             }
           >
             <Ionicons
