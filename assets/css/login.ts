@@ -1,88 +1,291 @@
 import { StyleSheet } from "react-native";
+import { COLORS } from "@/constants/colors";
 
 export const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    width: "100%",
+  },
+
+  backgroundOverlay: {
+    flex: 1,
+    backgroundColor: "rgba(45, 24, 10, 0.28)",
+  },
+
   container: {
     flex: 1,
-    backgroundColor: "#955138",
   },
+
+  keyboardContainer: {
+    flex: 1,
+    width: "100%",
+  },
+
   scrollContainer: {
     flexGrow: 1,
     justifyContent: "center",
     alignItems: "center",
-    padding: 20,
+    paddingHorizontal: 24,
+    paddingVertical: 24,
   },
+
   loginContainer: {
+    width: "100%",
+    maxWidth: 440,
     alignItems: "center",
-    width: "100%",
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: "bold",
-    color: "#FFFFFF",
-    marginBottom: 10,
-  },
-  subtitle: {
-    fontSize: 24,
-    color: "#FFFFFF",
-    marginBottom: 30,
-  },
-  treeImage: {
-    width: 300,
-    height: 150,
-    marginBottom: 40,
-    opacity: 0.9,
-  },
-  input: {
-    width: "80%",
-    height: 50,
-    backgroundColor: "#F9AC5E",
-    borderRadius: 10,
-    paddingHorizontal: 15,
-    marginBottom: 20,
-    color: "#FFFFFF",
-    fontSize: 16,
-    elevation: 2,
-  },
-  button: {
-    backgroundColor: "#C36922",
-    paddingHorizontal: 40,
-    paddingVertical: 15,
-    borderRadius: 25,
-    elevation: 3,
-  },
-  buttonText: {
-    color: "#FFFFFF",
-    fontSize: 18,
-    fontWeight: "bold",
   },
 
-  // Bordure rouge lorsque le champ contient une erreur
-  inputError: {
-    borderWidth: 4,
-    borderColor: "#ff4d4d",
+  // Identité Dry Forest
+  brandContainer: {
+    width: "100%",
+    alignItems: "center",
+    lineHeight: 0,
+    marginBottom: 28,
   },
 
-  // Message d'erreur affiché sous un champ
-  errorText: {
-    width: "100%",
-    marginTop: -10,
-    marginBottom: 12,
-    color: "#ff4d4d",
-    fontSize: 13,
-    display: "flex",
+  logoContainer: {
+    width: 112,
+    height: 112,
+    borderRadius: 56,
+    backgroundColor: COLORS.placeholder,
+    borderWidth: 1,
+    borderColor: COLORS.textSecondary,
     alignItems: "center",
     justifyContent: "center",
-
+    marginBottom: 14,
   },
 
-  // Message d'erreur général de connexion
-  loginErrorText: {
-    width: "100%",
-    marginTop: 4,
-    marginBottom: 15,
-    color: "#ff4d4d",
-    fontSize: 14,
+  treeImage: {
+    width: 88,
+    height: 88,
+  },
+
+  brandTitle: {
+    fontSize: 32,
+    fontWeight: "800",
+    color: COLORS.text,
+    letterSpacing: 0.5,
     textAlign: "center",
-    fontWeight: "500",
+  },
+
+  brandSubtitle: {
+    fontSize: 14,
+    color: COLORS.textSecondary,
+    marginTop: 8,
+    textAlign: "center",
+  },
+
+  // Formulaire
+  formContainer: {
+    width: "100%",
+    backgroundColor: "rgba(75, 38, 16, 0.88)",
+    borderRadius: 24,
+    paddingHorizontal: 22,
+    paddingTop: 26,
+    paddingBottom: 24,
+    borderWidth: 1,
+    borderColor: "#D99A55",
+    elevation: 5,
+    shadowColor: COLORS.shadow,
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.2,
+    shadowRadius: 12,
+  },
+
+  headingContainer: {
+    marginBottom: 26,
+  },
+
+  title: {
+    fontSize: 26,
+    fontWeight: "800",
+    color: COLORS.text,
+    marginBottom: 8,
+  },
+
+  subtitle: {
+    fontSize: 14,
+    color: COLORS.textSecondary,
+    lineHeight: 21,
+  },
+
+  // Champs de saisie
+  fieldContainer: {
+    width: "100%",
+    marginBottom: 18,
+  },
+
+  label: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: COLORS.text,
+    marginBottom: 9,
+  },
+
+  input: {
+    width: "100%",
+    height: 54,
+    backgroundColor: COLORS.placeholder,
+    borderWidth: 1,
+    borderColor: COLORS.textSecondary,
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    color: COLORS.text,
+    fontSize: 15,
+  },
+
+  inputError: {
+    borderWidth: 2,
+    borderColor: COLORS.error,
+  },
+
+  passwordInputContainer: {
+    width: "100%",
+    minHeight: 54,
+    backgroundColor: COLORS.inputBackground,
+    borderWidth: 1,
+    borderColor: COLORS.inputBorder,
+    borderRadius: 12,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
+  passwordInput: {
+    flex: 1,
+    height: 52,
+    paddingHorizontal: 16,
+    color: COLORS.text,
+    fontSize: 15,
+  },
+
+  eyeButton: {
+    width: 48,
+    height: 52,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  buttonContent: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 10,
+  },
+
+  loadingDots: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+  },
+
+  dot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: "#FFFFFF",
+  },
+
+  dot1: {
+    opacity: 0.4,
+  },
+
+  dot2: {
+    opacity: 0.7,
+  },
+
+  dot3: {
+    opacity: 1,
+  },
+
+  errorText: {
+    color: COLORS.errorText,
+    fontSize: 12,
+    marginTop: 7,
+    lineHeight: 17,
+  },
+
+  loginErrorContainer: {
+    backgroundColor: COLORS.errorBackground,
+    borderWidth: 1,
+    borderColor: COLORS.error,
+    borderRadius: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 11,
+    marginBottom: 16,
+  },
+
+  loginErrorText: {
+    color: COLORS.errorText,
+    fontSize: 13,
+    lineHeight: 19,
+    textAlign: "center",
+  },
+
+  // Bouton
+  button: {
+    width: "100%",
+    minHeight: 54,
+    backgroundColor: COLORS.primary,
+    borderRadius: 14,
+    paddingHorizontal: 18,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 8,
+    elevation: 3,
+    shadowColor: COLORS.shadow,
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+  },
+
+  buttonDisabled: {
+    opacity: 0.65,
+  },
+
+  buttonText: {
+    color: COLORS.text,
+    fontSize: 16,
+    fontWeight: "700",
+    textAlign: "center",
+  },
+
+  buttonArrow: {
+    color: COLORS.text,
+    fontSize: 22,
+    fontWeight: "600",
+    marginLeft: 12,
+  },
+
+  securityText: {
+    color: COLORS.textSecondary,
+    fontSize: 11,
+    lineHeight: 17,
+    textAlign: "center",
+    marginTop: 18,
+  },
+
+  // Pied de page
+  footer: {
+    width: "100%",
+    alignItems: "center",
+    marginTop: 28,
+  },
+
+  footerText: {
+    color: COLORS.textSecondary,
+    fontSize: 10,
+    fontWeight: "700",
+    letterSpacing: 1.2,
+    textAlign: "center",
+  },
+
+  footerCopyright: {
+    color: COLORS.textSecondary,
+    fontSize: 11,
+    marginTop: 8,
   },
 });
