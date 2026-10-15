@@ -1,57 +1,163 @@
-import React from "react";
+
+import { useState } from "react";
 import {
   Image,
+  Pressable,
   Text,
-  TouchableOpacity,
   View,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 
 import { styles } from "@/assets/css/MonitoringHeader.styles";
+import { COLORS } from "@/constants/colors";
 
 type Props = {
   title?: string;
   username?: string;
   logo?: number;
   onMenuPress: () => void;
+  menuOpen?: boolean;
 };
+
+type TooltipType = "menu" | "home" | null;
 
 export default function MonitoringHeader({
   title = "Dry Forest",
-  username = "User name",
+  username = "Utilisateur connecté",
   logo,
   onMenuPress,
+  menuOpen = false,
 }: Props) {
+  const router = useRouter();
+
+  const [tooltip, setTooltip] =
+    useState<TooltipType>(null);
+
+  const goToHome = () => {
+  setTooltip(null);
+  router.push("/home");
+};
+
+  const handleMenuPress = () => {
+    setTooltip(null);
+    onMenuPress();
+  };
+
   return (
     <View style={styles.safe}>
       <View style={styles.container}>
-        <TouchableOpacity
-          onPress={onMenuPress}
-          style={styles.left}
-          accessibilityRole="button"
-          accessibilityLabel="Ouvrir le menu"
-        >
-          <Ionicons
-            name="menu-outline"
-            size={26}
-            color="#fff"
-          />
-        </TouchableOpacity>
+        {/* Bouton du menu */}
+        <View style={styles.left}>
+          {tooltip === "menu" && (
+            <View
+              pointerEvents="none"
+              style={styles.tooltip}
+            >
+              <Text style={styles.tooltipText}>
+                {menuOpen
+                  ? "Fermer le menu"
+                  : "Ouvrir le menu"}
+              </Text>
+            </View>
+          )}
 
-        <View style={styles.center}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.username}>{username}</Text>
+          <Pressable
+            onPress={handleMenuPress}
+            onHoverIn={() => setTooltip("menu")}
+            onHoverOut={() => setTooltip(null)}
+            accessibilityRole="button"
+            accessibilityLabel={
+              menuOpen
+                ? "Fermer le menu"
+                : "Ouvrir le menu"
+            }
+            accessibilityHint="Affiche ou masque les rubriques de navigation"
+            hitSlop={8}
+            style={({ pressed }) => [
+              styles.iconButton,
+              pressed && styles.pressed,
+            ]}
+          >
+            <Ionicons
+              name={
+                menuOpen
+                  ? "close-outline"
+                  : "menu-outline"
+              }
+              size={28}
+              color={COLORS.text}
+            />
+          </Pressable>
         </View>
 
+        {/* Titre et utilisateur */}
+        <View style={styles.center}>
+          {tooltip === "home" && (
+            <View
+              pointerEvents="none"
+              style={styles.tooltip}
+            >
+              <Text style={styles.tooltipText}>
+                Retourner à l'accueil
+              </Text>
+            </View>
+          )}
+
+          <Pressable
+            onPress={goToHome}
+            onHoverIn={() => setTooltip("home")}
+            onHoverOut={() => setTooltip(null)}
+            accessibilityRole="link"
+            accessibilityLabel="Accueil Dry Forest"
+            accessibilityHint="Ouvre la page d'accueil"
+            style={({ pressed }) => [
+              styles.homeLink,
+              pressed && styles.pressedHome,
+            ]}
+          >
+            <View style={styles.titleRow}>
+              <Ionicons
+                name="home-outline"
+                size={18}
+                color={COLORS.text}
+                style={styles.homeIcon}
+              />
+
+              <Text
+                style={styles.title}
+                numberOfLines={1}
+                ellipsizeMode="tail"
+              >
+                {title}
+              </Text>
+            </View>
+
+            <Text
+              style={styles.username}
+              numberOfLines={1}
+              ellipsizeMode="tail"
+            >
+              {username}
+            </Text>
+          </Pressable>
+        </View>
+
+        {/* Logo */}
         <View style={styles.right}>
           {logo ? (
             <Image
               source={logo}
               style={styles.logo}
               resizeMode="contain"
+              accessible
+              accessibilityLabel="Logo Dry Forest"
             />
           ) : (
-            <View style={styles.logoPlaceholder} />
+            <View
+              style={styles.logoPlaceholder}
+              accessible={false}
+            />
           )}
         </View>
       </View>

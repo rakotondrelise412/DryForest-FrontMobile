@@ -1,10 +1,14 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  center: {
+  container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#955138",
   },
+
+  title:{
+    color: "with",
+  }
 });

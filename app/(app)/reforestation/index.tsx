@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { View } from "react-native";
 
-import { styles } from "@/assets/css/capacite-du-parcelle.styles";
+import { styles } from "@/assets/css/usersScreen.styles";
 import MonitoringHeader from "@/components/navigation/MonitoringHeader";
 
 export default function IndexReorestation() {
   const [menuVisible, setMenuVisible] = useState(false);
 
   return (
-    <View style={styles.center}>
+    <View style={styles.container}>
       <MonitoringHeader
         title="Suivi des plantations"
         username="Agent de terrain"
