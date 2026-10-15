@@ -11,7 +11,7 @@ export const COLORS = {
 
   // Champs de saisie
   inputBackground: "rgba(255, 255, 255, 0.13)",
-  inputBorder: "rgba(255, 255, 255, 0.9)",
+  inputBorder: "#D99A55",
   placeholder: "rgba(255, 255, 255, 0.13)",
 
   // Boutons
