@@ -7,12 +7,12 @@ import {
 } from "@react-navigation/drawer";
 import {
   Pressable,
-  StyleSheet,
   Text,
   View,
 } from "react-native";
 
 import MonitoringHeader from "@/components/navigation/MonitoringHeader";
+import { styles } from "@/assets/css/usersLayout.styles";
 
 const LOGO = require("../../../assets/img/Home_Dry_Forest.png");
 
@@ -139,54 +139,3 @@ export default function UsersLayout() {
     </Drawer>
   );
 }
-
-const styles = StyleSheet.create({
-  drawer: {
-    backgroundColor: "#C36922",
-    width: 270,
-  },
-
-  drawerContainer: {
-    flex: 1,
-    backgroundColor: "#C36922",
-  },
-
-  drawerHeader: {
-    minHeight: 64,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingLeft: 18,
-    paddingRight: 10,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: "rgba(255, 255, 255, 0.25)",
-  },
-
-  drawerTitle: {
-    flex: 1,
-    color: "#FFFFFF",
-    fontSize: 16,
-    fontWeight: "700",
-  },
-
-  closeButton: {
-    width: 44,
-    height: 44,
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 8,
-  },
-
-  pressed: {
-    opacity: 0.7,
-  },
-
-  drawerContent: {
-    paddingTop: 8,
-  },
-
-  drawerLabel: {
-    fontSize: 14,
-    fontWeight: "500",
-  },
-});
