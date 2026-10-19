@@ -129,14 +129,28 @@ export const styles = StyleSheet.create({
     color: COLORS.text,
     outlineColor: COLORS.inputBorder,
     fontSize: 15,
-     borderTopRightRadius: 12,
+    borderTopRightRadius: 12,
     borderBottomRightRadius: 12,
+  },
+
+  passwordInputContainer: {
+    width: "100%",
+    minHeight: 52,
+    backgroundColor: COLORS.inputBackground,
+    borderWidth: 1,
+    borderColor: COLORS.inputBorder,
+    borderRadius: 12,
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 12,
   },
 
   passwordInput: {
     flex: 1,
-    height: 52,
-    paddingHorizontal: 16,
+    minWidth: 0,
+    minHeight: 50,
+    paddingHorizontal: 8,
+    paddingVertical: 0,
     color: COLORS.text,
     fontSize: 15,
     outlineColor: COLORS.inputBorder,
@@ -148,27 +162,15 @@ export const styles = StyleSheet.create({
   },
 
   inputIcon: {
-    marginLeft: 14,
-    marginRight: 10,
-  },
-
-  passwordInputContainer: {
-    width: "100%",
-    minHeight: 54,
-    backgroundColor: COLORS.inputBackground,
-    borderWidth: 1,
-    borderColor: COLORS.inputBorder,
-    borderRadius: 12,
-    flexDirection: "row",
-    alignItems: "center",
-    height: 52,
+    marginRight: 8,
   },
 
   eyeButton: {
-    width: 48,
-    height: 52,
+    width: 40,
+    minHeight: 48,
     alignItems: "center",
     justifyContent: "center",
+    flexShrink: 0,
   },
 
   buttonContent: {
