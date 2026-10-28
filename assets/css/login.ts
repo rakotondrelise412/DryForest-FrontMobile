@@ -122,56 +122,64 @@ export const styles = StyleSheet.create({
     marginBottom: 9,
   },
 
-  usersInput: {
-    width: "100%",
-    height: 52,
-    paddingHorizontal: 16,
-    color: COLORS.text,
-    outlineColor: COLORS.inputBorder,
-    fontSize: 15,
-    borderTopRightRadius: 12,
-    borderBottomRightRadius: 12,
-  },
+  
+passwordInputContainer: {
+  width: "100%",
+  minHeight: 52,
+  backgroundColor: COLORS.inputBackground,
+  borderWidth: 1,
+  borderColor: COLORS.inputBorder,
+  borderRadius: 12,
+  flexDirection: "row",
+  alignItems: "center",
+  overflow: "hidden",
+},
 
-  passwordInputContainer: {
-    width: "100%",
-    minHeight: 52,
-    backgroundColor: COLORS.inputBackground,
-    borderWidth: 1,
-    borderColor: COLORS.inputBorder,
-    borderRadius: 12,
-    flexDirection: "row",
-    alignItems: "center",
-    paddingHorizontal: 12,
-  },
+usersInput: {
+  flex: 1,
+  minWidth: 0,
+  minHeight: 50,
+  height: 50,
+  paddingHorizontal: 12,
+  paddingVertical: 0,
+  color: COLORS.text,
+  outlineColor: COLORS.inputBorder,
+  fontSize: 15,
+  borderTopRightRadius: 11,
+  borderBottomRightRadius: 11,
+},
 
-  passwordInput: {
-    flex: 1,
-    minWidth: 0,
-    minHeight: 50,
-    paddingHorizontal: 8,
-    paddingVertical: 0,
-    color: COLORS.text,
-    fontSize: 15,
-    outlineColor: COLORS.inputBorder,
-  },
+passwordInput: {
+  flex: 1,
+  minWidth: 0,
+  minHeight: 50,
+  height: 50,
+  paddingHorizontal: 12,
+  paddingVertical: 0,
+  color: COLORS.text,
+  fontSize: 15,
+  outlineColor: COLORS.inputBorder,
+},
+
+inputIcon: {
+  marginLeft: 12,
+  marginRight: 8,
+},
+
+eyeButton: {
+  width: 40,
+  minHeight: 50,
+  alignItems: "center",
+  justifyContent: "center",
+  flexShrink: 0,
+},
+
 
   inputError: {
     borderWidth: 2,
     borderColor: COLORS.error,
   },
 
-  inputIcon: {
-    marginRight: 8,
-  },
-
-  eyeButton: {
-    width: 40,
-    minHeight: 48,
-    alignItems: "center",
-    justifyContent: "center",
-    flexShrink: 0,
-  },
 
   buttonContent: {
     flexDirection: "row",
