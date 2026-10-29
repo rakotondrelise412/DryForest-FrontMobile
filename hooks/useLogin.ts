@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Keyboard } from "react-native";
 import { useRouter } from "expo-router";
-import { login } from "../services/auth.service";
-import { saveToken } from "../utils/storage";
-import { validateLogin } from "../utils/login.validation";
+import { login } from "@/services/auth.service";
+import { saveToken } from "@/utils/storage";
+import { validateLogin } from "@/utils/login.validation";
 
 export function useLogin() {
   const router = useRouter();

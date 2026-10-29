@@ -122,54 +122,64 @@ export const styles = StyleSheet.create({
     marginBottom: 9,
   },
 
-  usersInput: {
-    width: "100%",
-    height: 52,
-    paddingHorizontal: 16,
-    color: COLORS.text,
-    outlineColor: COLORS.inputBorder,
-    fontSize: 15,
-     borderTopRightRadius: 12,
-    borderBottomRightRadius: 12,
-  },
+  
+passwordInputContainer: {
+  width: "100%",
+  minHeight: 52,
+  backgroundColor: COLORS.inputBackground,
+  borderWidth: 1,
+  borderColor: COLORS.inputBorder,
+  borderRadius: 12,
+  flexDirection: "row",
+  alignItems: "center",
+  overflow: "hidden",
+},
 
-  passwordInput: {
-    flex: 1,
-    height: 52,
-    paddingHorizontal: 16,
-    color: COLORS.text,
-    fontSize: 15,
-    outlineColor: COLORS.inputBorder,
-  },
+usersInput: {
+  flex: 1,
+  minWidth: 0,
+  minHeight: 50,
+  height: 50,
+  paddingHorizontal: 12,
+  paddingVertical: 0,
+  color: COLORS.text,
+  outlineColor: COLORS.inputBorder,
+  fontSize: 15,
+  borderTopRightRadius: 11,
+  borderBottomRightRadius: 11,
+},
+
+passwordInput: {
+  flex: 1,
+  minWidth: 0,
+  minHeight: 50,
+  height: 50,
+  paddingHorizontal: 12,
+  paddingVertical: 0,
+  color: COLORS.text,
+  fontSize: 15,
+  outlineColor: COLORS.inputBorder,
+},
+
+inputIcon: {
+  marginLeft: 12,
+  marginRight: 8,
+},
+
+eyeButton: {
+  width: 40,
+  minHeight: 50,
+  alignItems: "center",
+  justifyContent: "center",
+  flexShrink: 0,
+},
+
 
   inputError: {
     borderWidth: 2,
     borderColor: COLORS.error,
   },
 
-  inputIcon: {
-    marginLeft: 14,
-    marginRight: 10,
-  },
-
-  passwordInputContainer: {
-    width: "100%",
-    minHeight: 54,
-    backgroundColor: COLORS.inputBackground,
-    borderWidth: 1,
-    borderColor: COLORS.inputBorder,
-    borderRadius: 12,
-    flexDirection: "row",
-    alignItems: "center",
-    height: 52,
-  },
-
-  eyeButton: {
-    width: 48,
-    height: 52,
-    alignItems: "center",
-    justifyContent: "center",
-  },
 
   buttonContent: {
     flexDirection: "row",

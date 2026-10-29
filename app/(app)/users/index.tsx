@@ -1,18 +1,11 @@
-import { styles } from "@/assets/css/usersAccessScreen.styles";
 import { Text, View } from "react-native";
+import { styles } from "@/assets/css/usersScreen.styles";
 
-export default function UsersAccessScreen() {
+export default function UsersIndexScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>
-        Utilisateurs et accès
-      </Text>
-
-      <Text>
-        Gestion des accès à Dry Forest.
-      </Text>
+      <Text style={styles.title}>Utilisateurs et accès</Text>
+      <Text>Gestion des employés et des comptes utilisateurs.</Text>
     </View>
   );
 }
-
-

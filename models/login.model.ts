@@ -22,4 +22,3 @@ export interface LoginButtonProps {
   loadingText: string;
   onPress: () => void;
 }
-

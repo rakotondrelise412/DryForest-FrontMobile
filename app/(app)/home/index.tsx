@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import { removeToken } from "../../../utils/storage";
+import { removeToken } from "@/utils/storage";
 import { styles } from "@/assets/css/home";
 
 const TREE = require("../../../assets/img/baobab.png");

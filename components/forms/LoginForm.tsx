@@ -92,6 +92,7 @@ export default function LoginForm(props: LoginFormProps) {
             color={COLORS.textSecondary}
             style={styles.inputIcon}
           />
+
           <TextInput
             style={styles.passwordInput}
             placeholder="Saisissez votre mot de passe"
@@ -127,7 +128,7 @@ export default function LoginForm(props: LoginFormProps) {
           >
             <Ionicons
               name={showPassword ? "eye-off-outline" : "eye-outline"}
-              size={23}
+              size={22}
               color={COLORS.textSecondary}
             />
           </TouchableOpacity>
