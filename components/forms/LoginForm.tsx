@@ -75,12 +75,6 @@ export default function LoginForm(props: LoginFormProps) {
             {usernameError}
           </Text>
         )}
-
-        {!!usernameError && (
-          <Text style={styles.errorText} accessibilityRole="alert">
-            {usernameError}
-          </Text>
-        )}
       </View>
 
       <View style={styles.fieldContainer}>

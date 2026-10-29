@@ -1,4 +1,3 @@
-
 import { Text, View } from "react-native";
 import { styles } from "@/assets/css/personScreen.styles";
 
@@ -10,4 +9,3 @@ export default function PersonScreen() {
     </View>
   );
 }
-

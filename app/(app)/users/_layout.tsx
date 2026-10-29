@@ -1,4 +1,3 @@
-
 import { Ionicons } from "@expo/vector-icons";
 import { Drawer } from "expo-router/drawer";
 import {
@@ -18,8 +17,8 @@ const LOGO = require("../../../assets/img/Home_Dry_Forest.png");
 
 const SCREEN_TITLES: Record<string, string> = {
   index: "Utilisateurs et accès",
-  person: "Employés",
-  users: "Utilisateurs",
+  "persons/person": "Employés",
+  "users/users": "Utilisateurs",
 };
 
 export default function UsersLayout() {
@@ -107,7 +106,7 @@ export default function UsersLayout() {
 
       {/* Gestion des employés */}
       <Drawer.Screen
-        name="person"
+        name="persons/person"
         options={{
           title: "Employés",
           drawerLabel: "Employés",
@@ -123,7 +122,7 @@ export default function UsersLayout() {
 
       {/* Gestion des utilisateurs */}
       <Drawer.Screen
-        name="users"
+        name="users/users"
         options={{
           title: "Utilisateurs",
           drawerLabel: "Utilisateurs",

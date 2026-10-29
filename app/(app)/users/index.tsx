@@ -1,12 +1,11 @@
-import { styles } from "@/assets/css/usersScreen.styles";
 import { Text, View } from "react-native";
+import { styles } from "@/assets/css/usersScreen.styles";
 
-export default function UsersScreen() {
+export default function UsersIndexScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Utilisateurs</Text>
-      <Text>Gestion des comptes utilisateurs.</Text>
+      <Text style={styles.title}>Utilisateurs et accès</Text>
+      <Text>Gestion des employés et des comptes utilisateurs.</Text>
     </View>
   );
 }
-

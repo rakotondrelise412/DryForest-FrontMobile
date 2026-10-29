@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import {
   Image,
@@ -99,7 +98,7 @@ export default function MonitoringHeader({
               style={styles.tooltip}
             >
               <Text style={styles.tooltipText}>
-                Retourner à l'accueil
+                Retourner à l&apos;accueil
               </Text>
             </View>
           )}
