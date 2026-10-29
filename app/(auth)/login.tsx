@@ -19,7 +19,7 @@ export default function LoginScreen() {
 
   return (
     <ImageBackground
-      source={require("../../assets/img/dry-forest-background.jpg")}
+      source={require("../../assets/img/background.png")}
       style={styles.backgroundImage}
       resizeMode="cover"
     >

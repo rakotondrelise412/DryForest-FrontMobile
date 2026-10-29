@@ -113,7 +113,7 @@ export const styles = StyleSheet.create({
     marginBottom: 6,
     maxWidth: 200,
     elevation: 8,
-    shadowColor: "#000000",
+    shadowColor: COLORS.shadow,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,

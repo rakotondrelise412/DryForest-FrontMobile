@@ -1,10 +1,10 @@
 
 import { StyleSheet } from "react-native";
+import { COLORS } from "@/constants/colors";
 
 const styles = StyleSheet.create({
-
   safe: {
-    backgroundColor: "#C36922",
+    backgroundColor: COLORS.primary,
   },
 
   container: {
@@ -32,13 +32,13 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    color: "#fff",
+    color: COLORS.text,
     fontSize: 18,
     fontWeight: "700",
   },
 
   username: {
-    color: "#fff",
+    color: COLORS.text,
     fontSize: 13,
     opacity: 0.9,
   },
@@ -58,10 +58,9 @@ const styles = StyleSheet.create({
   logoPlaceholder: {
     width: 44,
     height: 32,
-    backgroundColor: "#fff2",
+    backgroundColor: COLORS.whiteTransparent,
     borderRadius: 4,
   },
-
 });
 
 export default styles;

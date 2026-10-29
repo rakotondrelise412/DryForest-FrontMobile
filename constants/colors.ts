@@ -1,5 +1,6 @@
+
 export const COLORS = {
-  // Couleurs principales de l'application
+  // Couleurs principales
   primary: "#C36922",
   primaryDark: "#99501B",
   background: "#FFFFFF",
@@ -28,6 +29,12 @@ export const COLORS = {
 
   // Ombres
   shadow: "rgba(0, 0, 0, 0.2)",
+
+  // Superpositions et éléments décoratifs
+  overlay: "rgba(45, 24, 10, 0.28)",
+  formBackground: "rgba(75, 38, 16, 0.38)",
+  whiteTransparent: "rgba(255, 255, 255, 0.15)",
+  whiteBorder: "rgba(255, 255, 255, 0.18)",
 
   // Autres éléments
   tooltipBackground: "#173D2A",

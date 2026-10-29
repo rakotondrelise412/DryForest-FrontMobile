@@ -1,14 +1,6 @@
+
 import { StyleSheet } from "react-native";
-
-const COLORS = {
-  primary: "#8e4f3f",
-  white: "#fff",
-  accent: "#C36922",
-
-  overlay: "rgba(142, 79, 63, 0.78)",
-  whiteTransparent: "rgba(255, 255, 255, 0.15)",
-  whiteBorder: "rgba(255, 255, 255, 0.18)",
-};
+import { COLORS } from "@/constants/colors";
 
 export const styles = StyleSheet.create({
   bg: {
@@ -35,14 +27,14 @@ export const styles = StyleSheet.create({
   },
 
   appName: {
-    color: COLORS.white,
+    color: COLORS.text,
     fontSize: 20,
     fontWeight: "bold",
     letterSpacing: 1.5,
   },
 
   appSubtitle: {
-    color: COLORS.white,
+    color: COLORS.text,
     fontSize: 13,
     marginTop: 3,
     opacity: 0.8,
@@ -65,7 +57,7 @@ export const styles = StyleSheet.create({
   },
 
   welcome1: {
-    color: COLORS.white,
+    color: COLORS.text,
     fontSize: 29,
     fontWeight: "bold",
     letterSpacing: 3,
@@ -73,14 +65,14 @@ export const styles = StyleSheet.create({
   },
 
   welcome2: {
-    color: COLORS.white,
+    color: COLORS.text,
     fontSize: 18,
     marginTop: 4,
     opacity: 0.8,
   },
 
   welcome3: {
-    color: COLORS.accent,
+    color: COLORS.primary,
     fontSize: 36,
     fontWeight: "bold",
     textAlign: "center",
@@ -88,7 +80,7 @@ export const styles = StyleSheet.create({
   },
 
   description: {
-    color: COLORS.white,
+    color: COLORS.text,
     fontSize: 14,
     textAlign: "center",
     lineHeight: 22,
@@ -105,7 +97,7 @@ export const styles = StyleSheet.create({
     minHeight: 55,
     paddingHorizontal: 16,
     borderRadius: 12,
-    backgroundColor: COLORS.accent,
+    backgroundColor: COLORS.primary,
     flexDirection: "row",
     alignItems: "center",
     gap: 12,
@@ -115,13 +107,13 @@ export const styles = StyleSheet.create({
 
   buttonText: {
     flex: 1,
-    color: COLORS.white,
+    color: COLORS.text,
     fontSize: 15,
     fontWeight: "600",
   },
 
   footer: {
-    color: COLORS.white,
+    color: COLORS.text,
     fontSize: 11,
     textAlign: "center",
     paddingVertical: 6,

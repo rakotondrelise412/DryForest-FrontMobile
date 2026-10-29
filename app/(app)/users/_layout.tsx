@@ -1,17 +1,12 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Drawer } from "expo-router/drawer";
-import {
-  DrawerContentScrollView,
-  DrawerItemList,
-} from "@react-navigation/drawer";
-import {
-  Pressable,
-  Text,
-  View,
-} from "react-native";
+import { View } from "react-native";
 
+import DrawerHeader from "@/components/navigation/DrawerHeader";
+import DrawerNavigationItems from "@/components/navigation/DrawerNavigationItems";
 import MonitoringHeader from "@/components/navigation/MonitoringHeader";
-import { styles } from "@/assets/css/usersLayout.styles";
+
+import { styles } from "@/assets/css/drawerStyle.styles";
 
 const LOGO = require("../../../assets/img/Home_Dry_Forest.png");
 
@@ -27,46 +22,16 @@ export default function UsersLayout() {
       drawerContent={(props) => (
         <View style={styles.drawerContainer}>
           {/* En-tête du menu */}
-          <View style={styles.drawerHeader}>
-            <Text style={styles.drawerTitle}>
-              Menu de navigation
-            </Text>
-
-            <Pressable
-              onPress={() => props.navigation.closeDrawer()}
-              accessibilityRole="button"
-              accessibilityLabel="Fermer le menu"
-              hitSlop={8}
-              style={({ pressed }) => [
-                styles.closeButton,
-                pressed && styles.pressed,
-              ]}
-            >
-              <Ionicons
-                name="close-outline"
-                size={30}
-                color="#FFFFFF"
-              />
-            </Pressable>
-          </View>
+          <DrawerHeader onClose={() => props.navigation.closeDrawer()} />
 
           {/* Rubriques de navigation */}
-          <DrawerContentScrollView
-            {...props}
-            contentContainerStyle={styles.drawerContent}
-          >
-            <DrawerItemList {...props} />
-          </DrawerContentScrollView>
+          <DrawerNavigationItems props={props} />
         </View>
       )}
       screenOptions={{
         header: ({ route, options, navigation }) => (
           <MonitoringHeader
-            title={
-              options.title ??
-              SCREEN_TITLES[route.name] ??
-              route.name
-            }
+            title={options.title ?? SCREEN_TITLES[route.name] ?? route.name}
             username="Utilisateur connecté"
             logo={LOGO}
             onMenuPress={() => navigation.toggleDrawer()}
@@ -80,8 +45,7 @@ export default function UsersLayout() {
         drawerActiveTintColor: "#FFFFFF",
         drawerInactiveTintColor: "#FFFFFF",
 
-        drawerActiveBackgroundColor:
-          "rgba(255, 255, 255, 0.20)",
+        drawerActiveBackgroundColor: "rgba(255, 255, 255, 0.20)",
 
         drawerInactiveBackgroundColor: "transparent",
 
@@ -111,11 +75,7 @@ export default function UsersLayout() {
           title: "Employés",
           drawerLabel: "Employés",
           drawerIcon: ({ color, size }) => (
-            <Ionicons
-              name="people-outline"
-              color={color}
-              size={size}
-            />
+            <Ionicons name="people-outline" color={color} size={size} />
           ),
         }}
       />
@@ -127,11 +87,7 @@ export default function UsersLayout() {
           title: "Utilisateurs",
           drawerLabel: "Utilisateurs",
           drawerIcon: ({ color, size }) => (
-            <Ionicons
-              name="person-circle-outline"
-              color={color}
-              size={size}
-            />
+            <Ionicons name="person-circle-outline" color={color} size={size} />
           ),
         }}
       />
