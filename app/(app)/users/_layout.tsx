@@ -12,8 +12,14 @@ const LOGO = require("../../../assets/img/Home_Dry_Forest.png");
 
 const SCREEN_TITLES: Record<string, string> = {
   index: "Utilisateurs et accès",
-  "persons/person": "Employés",
-  "users/users": "Utilisateurs",
+
+  create: "Créer un utilisateur",
+  "[id]": "Détails d'un utilisateur",
+  "edit/[id]": "Modifier un utilisateur",
+
+  "persons/index": "Employés",
+  "persons/create": "Ajouter un employé",
+  "persons/[id]": "Détails d'un employé",
 };
 
 export default function UsersLayout() {
@@ -46,7 +52,6 @@ export default function UsersLayout() {
         drawerInactiveTintColor: "#FFFFFF",
 
         drawerActiveBackgroundColor: "rgba(255, 255, 255, 0.20)",
-
         drawerInactiveBackgroundColor: "transparent",
 
         drawerLabelStyle: styles.drawerLabel,
@@ -70,7 +75,7 @@ export default function UsersLayout() {
 
       {/* Gestion des employés */}
       <Drawer.Screen
-        name="persons/person"
+        name="persons/index"
         options={{
           title: "Employés",
           drawerLabel: "Employés",
@@ -80,15 +85,48 @@ export default function UsersLayout() {
         }}
       />
 
-      {/* Gestion des utilisateurs */}
+      {/* Création d'un employé */}
       <Drawer.Screen
-        name="users/users"
+        name="persons/create"
         options={{
-          title: "Utilisateurs",
-          drawerLabel: "Utilisateurs",
-          drawerIcon: ({ color, size }) => (
-            <Ionicons name="person-circle-outline" color={color} size={size} />
-          ),
+          title: "Ajouter un employé",
+          drawerItemStyle: { display: "none" },
+        }}
+      />
+
+      {/* Détails d'un employé */}
+      <Drawer.Screen
+        name="persons/[id]"
+        options={{
+          title: "Détails d'un employé",
+          drawerItemStyle: { display: "none" },
+        }}
+      />
+
+      {/* Création d'un utilisateur */}
+      <Drawer.Screen
+        name="create"
+        options={{
+          title: "Créer un utilisateur",
+          drawerItemStyle: { display: "none" },
+        }}
+      />
+
+      {/* Détails d'un utilisateur */}
+      <Drawer.Screen
+        name="[id]"
+        options={{
+          title: "Détails d'un utilisateur",
+          drawerItemStyle: { display: "none" },
+        }}
+      />
+
+      {/* Modification d'un utilisateur */}
+      <Drawer.Screen
+        name="edit/[id]"
+        options={{
+          title: "Modifier un utilisateur",
+          drawerItemStyle: { display: "none" },
         }}
       />
     </Drawer>
