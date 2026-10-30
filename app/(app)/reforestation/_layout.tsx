@@ -12,11 +12,26 @@ const LOGO = require("../../../assets/img/Home_Dry_Forest.png");
 
 const SCREEN_TITLES: Record<string, string> = {
   index: "Reboisement",
+  create: "Créer un projet",
+  "[id]": "Détails du reboisement",
+  "details/[id]": "Détails du projet",
+
   "blocks/index": "Blocs de plantation",
+  "blocks/create": "Créer un bloc",
+  "blocks/[id]": "Détails d'un bloc",
+
   "subplots/index": "Sous-parcelles",
+  "subplots/create": "Créer une sous-parcelle",
+  "subplots/[id]": "Détails d'une sous-parcelle",
+
   "plantation/index": "Plantations",
+  "plantation/create": "Créer une plantation",
+  "plantation/[id]": "Détails d'une plantation",
+  "plantation/edit/[id]": "Modifier une plantation",
+
   "monitoring/index": "Suivi des plantations",
-  "details/[id]": "Détails du reboisement",
+  "monitoring/create": "Créer un suivi",
+  "monitoring/[id]": "Détails d'un suivi",
 };
 
 export default function ReforestationLayout() {
@@ -49,7 +64,6 @@ export default function ReforestationLayout() {
         drawerInactiveTintColor: "#FFFFFF",
 
         drawerActiveBackgroundColor: "rgba(255, 255, 255, 0.20)",
-
         drawerInactiveBackgroundColor: "transparent",
 
         drawerLabelStyle: styles.drawerLabel,
@@ -67,6 +81,33 @@ export default function ReforestationLayout() {
         }}
       />
 
+      {/* Création d'un projet */}
+      <Drawer.Screen
+        name="create"
+        options={{
+          title: "Créer un projet",
+          drawerItemStyle: { display: "none" },
+        }}
+      />
+
+      {/* Détails d'un reboisement */}
+      <Drawer.Screen
+        name="[id]"
+        options={{
+          title: "Détails du reboisement",
+          drawerItemStyle: { display: "none" },
+        }}
+      />
+
+      {/* Détails complémentaires d'un projet */}
+      <Drawer.Screen
+        name="details/[id]"
+        options={{
+          title: "Détails du projet",
+          drawerItemStyle: { display: "none" },
+        }}
+      />
+
       {/* Gestion des blocs de plantation */}
       <Drawer.Screen
         name="blocks/index"
@@ -76,6 +117,24 @@ export default function ReforestationLayout() {
           drawerIcon: ({ color, size }) => (
             <Ionicons name="grid-outline" color={color} size={size} />
           ),
+        }}
+      />
+
+      {/* Création d'un bloc */}
+      <Drawer.Screen
+        name="blocks/create"
+        options={{
+          title: "Créer un bloc",
+          drawerItemStyle: { display: "none" },
+        }}
+      />
+
+      {/* Détails d'un bloc */}
+      <Drawer.Screen
+        name="blocks/[id]"
+        options={{
+          title: "Détails d'un bloc",
+          drawerItemStyle: { display: "none" },
         }}
       />
 
@@ -91,6 +150,24 @@ export default function ReforestationLayout() {
         }}
       />
 
+      {/* Création d'une sous-parcelle */}
+      <Drawer.Screen
+        name="subplots/create"
+        options={{
+          title: "Créer une sous-parcelle",
+          drawerItemStyle: { display: "none" },
+        }}
+      />
+
+      {/* Détails d'une sous-parcelle */}
+      <Drawer.Screen
+        name="subplots/[id]"
+        options={{
+          title: "Détails d'une sous-parcelle",
+          drawerItemStyle: { display: "none" },
+        }}
+      />
+
       {/* Gestion des plantations */}
       <Drawer.Screen
         name="plantation/index"
@@ -100,6 +177,33 @@ export default function ReforestationLayout() {
           drawerIcon: ({ color, size }) => (
             <Ionicons name="flower-outline" color={color} size={size} />
           ),
+        }}
+      />
+
+      {/* Création d'une plantation */}
+      <Drawer.Screen
+        name="plantation/create"
+        options={{
+          title: "Créer une plantation",
+          drawerItemStyle: { display: "none" },
+        }}
+      />
+
+      {/* Détails d'une plantation */}
+      <Drawer.Screen
+        name="plantation/[id]"
+        options={{
+          title: "Détails d'une plantation",
+          drawerItemStyle: { display: "none" },
+        }}
+      />
+
+      {/* Modification d'une plantation */}
+      <Drawer.Screen
+        name="plantation/edit/[id]"
+        options={{
+          title: "Modifier une plantation",
+          drawerItemStyle: { display: "none" },
         }}
       />
 
@@ -115,15 +219,21 @@ export default function ReforestationLayout() {
         }}
       />
 
-      {/* Détails d'un projet de reboisement */}
+      {/* Création d'un suivi */}
       <Drawer.Screen
-        name="details/[id]"
+        name="monitoring/create"
         options={{
-          title: "Détails du reboisement",
-          drawerLabel: "Détails du reboisement",
-          drawerIcon: ({ color, size }) => (
-            <Ionicons name="document-text-outline" color={color} size={size} />
-          ),
+          title: "Créer un suivi",
+          drawerItemStyle: { display: "none" },
+        }}
+      />
+
+      {/* Détails d'un suivi */}
+      <Drawer.Screen
+        name="monitoring/[id]"
+        options={{
+          title: "Détails d'un suivi",
+          drawerItemStyle: { display: "none" },
         }}
       />
     </Drawer>
