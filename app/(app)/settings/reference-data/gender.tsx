@@ -1,20 +1,8 @@
 
-import { View, Text } from "react-native";
-import { styles } from "@/assets/css/animalTrackingDetails.styles";
-import { useLocalSearchParams } from "expo-router";
+import { Redirect } from "expo-router";
 
-export default function AnimalTrackingDetailsScreen() {
-  const { id } = useLocalSearchParams<{ id: string }>();
-
+export default function GendersRoute() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>
-        Détails du suivi animalier
-      </Text>
-
-      <Text style={styles.subtitle}>
-        Identifiant : {id}
-      </Text>
-    </View>
+    <Redirect href="/(app)/settings/reference-data/genders" />
   );
 }
