@@ -74,11 +74,42 @@ export const styles = StyleSheet.create({
     marginTop: 3,
   },
 
-  right: {
-    width: 64,
-    alignItems: "flex-end",
+   logoutButton: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: COLORS.whiteTransparent,
+    alignItems: "center",
     justifyContent: "center",
   },
+
+  
+right: {
+  width: 112,
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "flex-end",
+  gap: 8,
+},
+
+logoutContainer: {
+  position: "relative",
+  alignItems: "center",
+  justifyContent: "center",
+},
+
+logoutTooltip: {
+  position: "absolute",
+  right: 55,
+  backgroundColor: COLORS.tooltipBackground,
+  paddingHorizontal: 12,
+  paddingVertical: 8,
+  borderRadius: 8,
+  zIndex: 9999,
+  elevation: 10,
+  minWidth: 120,
+  alignItems: "center",
+},
 
   logo: {
     width: 60,

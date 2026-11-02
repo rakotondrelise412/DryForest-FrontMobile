@@ -1,13 +1,18 @@
+
 import { Stack } from "expo-router";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+
+import { ToastProvider } from "@/components/common/ToastProvider";
 
 export default function RootLayout() {
   return (
     <SafeAreaProvider>
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="(auth)" />
-        <Stack.Screen name="(app)" />
-      </Stack>
+      <ToastProvider>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="(auth)" />
+          <Stack.Screen name="(app)" />
+        </Stack>
+      </ToastProvider>
     </SafeAreaProvider>
   );
 }

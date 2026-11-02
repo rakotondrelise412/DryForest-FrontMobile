@@ -1,31 +1,40 @@
-import React from "react";
+import { useState } from "react";
 import {
   View,
   Text,
   ImageBackground,
-  TouchableOpacity,
+  Pressable,
   ScrollView,
-  Alert,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+
 import { removeToken } from "@/utils/storage";
 import { styles } from "@/assets/css/home";
+import { COLORS } from "@/constants/colors";
+import { useToast } from "@/components/common/ToastProvider";
+import HomeButton from "@/components/home/HomeButton";
 
 const TREE = require("../../../assets/img/baobab.png");
 
 export default function HomePage() {
   const router = useRouter();
+  const { showToast } = useToast();
+
+  const [showLogoutTooltip, setShowLogoutTooltip] = useState(false);
+
+  // ============================================================
+  // DÉCONNEXION
+  // ============================================================
 
   const handleLogout = async () => {
+    setShowLogoutTooltip(false);
+
     try {
       await removeToken();
       router.replace("/(auth)/login");
     } catch {
-      Alert.alert(
-        "Erreur",
-        "Impossible de supprimer la session. Réessayez.",
-      );
+      showToast("Impossible de supprimer la session. Réessayez.", "error");
     }
   };
 
@@ -37,35 +46,53 @@ export default function HomePage() {
       resizeMode="cover"
     >
       <View style={styles.overlay}>
+        {/* BARRE SUPÉRIEURE */}
         <View style={styles.topBar}>
           <View>
             <Text style={styles.appName}>DRY FOREST</Text>
-            <Text style={styles.appSubtitle}>
-              Gestion forestière
-            </Text>
+            <Text style={styles.appSubtitle}>Gestion forestière</Text>
           </View>
 
-          <TouchableOpacity
-            style={styles.logoutButton}
-            onPress={handleLogout}
-            accessibilityLabel="Se déconnecter"
-            accessibilityRole="button"
-          >
-            <Ionicons
-              name="log-out-outline"
-              size={25}
-              color="#FFFFFF"
-            />
-          </TouchableOpacity>
+          {/* BOUTON DÉCONNEXION */}
+          <View style={styles.logoutContainer}>
+            {showLogoutTooltip && (
+              <View pointerEvents="none" style={styles.logoutTooltip}>
+                <Text style={styles.logoutTooltipText}>
+                  Se déconnecter
+                </Text>
+              </View>
+            )}
+
+            <Pressable
+              style={({ pressed }) => [
+                styles.logoutButton,
+                pressed && styles.logoutPressed,
+              ]}
+              onPress={handleLogout}
+              onHoverIn={() => setShowLogoutTooltip(true)}
+              onHoverOut={() => setShowLogoutTooltip(false)}
+              accessibilityLabel="Se déconnecter"
+              accessibilityRole="button"
+              hitSlop={8}
+            >
+              <Ionicons
+                name="log-out-outline"
+                size={24}
+                color={COLORS.white}
+              />
+            </Pressable>
+          </View>
         </View>
 
-        {/* Contenu principal */}
+        {/* CONTENU PRINCIPAL */}
         <ScrollView
           contentContainerStyle={styles.content}
           showsVerticalScrollIndicator={false}
         >
           <Text style={styles.welcome1}>BIENVENUE</Text>
+
           <Text style={styles.welcome2}>dans</Text>
+
           <Text style={styles.welcome3}>Dry Forest</Text>
 
           <Text style={styles.description}>
@@ -102,9 +129,7 @@ export default function HomePage() {
             <HomeButton
               title="Suivi des animaux"
               icon="locate-outline"
-              onPress={() =>
-                router.push("/animals/animal-tracking")
-              }
+              onPress={() => router.push("/animals/animal-tracking")}
             />
 
             <HomeButton
@@ -121,46 +146,11 @@ export default function HomePage() {
           </View>
         </ScrollView>
 
-        {/* Pied de page */}
+        {/* PIED DE PAGE */}
         <Text style={styles.footer}>
           Dry Forest — Application mobile
         </Text>
       </View>
     </ImageBackground>
-  );
-}
-
-type HomeButtonProps = {
-  title: string;
-  icon: React.ComponentProps<typeof Ionicons>["name"];
-  onPress: () => void;
-};
-
-function HomeButton({
-  title,
-  icon,
-  onPress,
-}: HomeButtonProps) {
-  return (
-    <TouchableOpacity
-      style={styles.button}
-      onPress={onPress}
-      activeOpacity={0.8}
-      accessibilityRole="button"
-    >
-      <Ionicons
-        name={icon}
-        size={23}
-        color="#FFFFFF"
-      />
-
-      <Text style={styles.buttonText}>{title}</Text>
-
-      <Ionicons
-        name="chevron-forward"
-        size={20}
-        color="#FFFFFF"
-      />
-    </TouchableOpacity>
   );
 }
