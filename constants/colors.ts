@@ -1,42 +1,81 @@
 
 export const COLORS = {
-  // Couleurs principales
+  // ============================================================
+  // COULEURS PRINCIPALES
+  // ============================================================
   primary: "#C36922",
   primaryDark: "#99501B",
-  background: "#FFFFFF",
+  primaryLight: "#F9EDE3",
+  primaryVeryLight: "#FFF3E9",
 
-  // Textes
+  // ============================================================
+  // ARRIÈRE-PLANS
+  // ============================================================
+  background: "#FFFFFF",
+  screenBackground: "#F8F6F3",
+  formBackground: "rgba(75, 38, 16, 0.38)",
+
+  // ============================================================
+  // TEXTES
+  // ============================================================
   text: "#FFFFFF",
   textSecondary: "rgba(255, 255, 255, 0.9)",
   textMuted: "rgba(255, 255, 255, 0.7)",
 
-  // Champs de saisie
+  textDark: "#333333",
+  textGray: "#555555",
+  textMutedDark: "#777777",
+  textLightGray: "#888888",
+  textPlaceholder: "#999999",
+
+  // ============================================================
+  // CHAMPS DE SAISIE
+  // ============================================================
   inputBackground: "rgba(255, 255, 255, 0.13)",
   inputBorder: "#D99A55",
   placeholder: "rgba(255, 255, 255, 0.13)",
 
-  // Boutons
+  // ============================================================
+  // BOUTONS
+  // ============================================================
   buttonBackground: "#C36922",
   buttonDisabledOpacity: 0.65,
 
-  // Erreurs et validation
+  // ============================================================
+  // ERREURS ET VALIDATION
+  // ============================================================
   error: "#FF6B6B",
   errorText: "#FFD0D0",
   errorBackground: "rgba(255, 107, 107, 0.12)",
+  errorLight: "#FFF0F0",
 
-  // Bordures et séparateurs
+  // ============================================================
+  // BORDURES ET SÉPARATEURS
+  // ============================================================
   border: "rgba(255, 255, 255, 0.13)",
-
-  // Ombres
-  shadow: "rgba(0, 0, 0, 0.2)",
-
-  // Superpositions et éléments décoratifs
-  overlay: "rgba(45, 24, 10, 0.28)",
-  formBackground: "rgba(75, 38, 16, 0.38)",
-  whiteTransparent: "rgba(255, 255, 255, 0.15)",
+  borderLight: "#EAE2DA",
+  borderGray: "#EEEEEE",
   whiteBorder: "rgba(255, 255, 255, 0.18)",
 
-  // Autres éléments
+  // ============================================================
+  // OMBRES
+  // ============================================================
+  shadow: "rgba(0, 0, 0, 0.2)",
+  shadowLight: "rgba(0, 0, 0, 0.06)",
+  shadowMedium: "rgba(0, 0, 0, 0.08)",
+  overlayShadow: "rgba(0, 0, 0, 0.25)",
+
+  // ============================================================
+  // SUPERPOSITIONS ET ÉLÉMENTS DÉCORATIFS
+  // ============================================================
+  overlay: "rgba(45, 24, 10, 0.28)",
+  whiteTransparent: "rgba(255, 255, 255, 0.15)",
   tooltipBackground: "#173D2A",
   transparent: "transparent",
+
+  // ============================================================
+  // COULEURS DE BASE
+  // ============================================================
+  white: "#FFFFFF",
+  black: "#000000",
 } as const;

@@ -20,12 +20,6 @@ export const styles = StyleSheet.create({
     paddingBottom: 12,
   },
 
-  topBar: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-
   appName: {
     color: COLORS.text,
     fontSize: 20,
@@ -40,14 +34,52 @@ export const styles = StyleSheet.create({
     opacity: 0.8,
   },
 
-  logoutButton: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    backgroundColor: COLORS.whiteTransparent,
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  topBar: {
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "space-between",
+  zIndex: 10,
+},
+
+logoutContainer: {
+  position: "relative",
+  alignItems: "center",
+  justifyContent: "center",
+  zIndex: 20,
+},
+
+logoutButton: {
+  width: 44,
+  height: 44,
+  borderRadius: 22,
+  backgroundColor: COLORS.whiteTransparent,
+  alignItems: "center",
+  justifyContent: "center",
+},
+
+logoutPressed: {
+  backgroundColor: COLORS.primaryDark,
+  opacity: 0.85,
+},
+
+logoutTooltip: {
+  position: "absolute",
+  right: 50,
+  backgroundColor: COLORS.tooltipBackground,
+  paddingHorizontal: 12,
+  paddingVertical: 8,
+  borderRadius: 8,
+  zIndex: 9999,
+  elevation: 10,
+  minWidth: 120,
+  alignItems: "center",
+},
+
+logoutTooltipText: {
+  color: COLORS.white,
+  fontSize: 12,
+  fontWeight: "600",
+},
 
   content: {
     flexGrow: 1,

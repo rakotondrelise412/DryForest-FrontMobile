@@ -1,15 +1,12 @@
 import { useState } from "react";
-import {
-  Image,
-  Pressable,
-  Text,
-  View,
-} from "react-native";
+import { Image, Pressable, Text, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 
 import { styles } from "@/assets/css/MonitoringHeader.styles";
 import { COLORS } from "@/constants/colors";
+import { removeToken } from "@/utils/storage";
+import { useToast } from "../common/ToastProvider";
 
 type Props = {
   title?: string;
@@ -19,7 +16,7 @@ type Props = {
   menuOpen?: boolean;
 };
 
-type TooltipType = "menu" | "home" | null;
+type TooltipType = "menu" | "home" | "logout" | null;
 
 export default function MonitoringHeader({
   title = "Dry Forest",
@@ -29,34 +26,40 @@ export default function MonitoringHeader({
   menuOpen = false,
 }: Props) {
   const router = useRouter();
+  const { showToast } = useToast();
 
-  const [tooltip, setTooltip] =
-    useState<TooltipType>(null);
+  const [tooltip, setTooltip] = useState<TooltipType>(null);
 
   const goToHome = () => {
-  setTooltip(null);
-  router.push("/home");
-};
+    setTooltip(null);
+    router.push("/home");
+  };
 
   const handleMenuPress = () => {
     setTooltip(null);
     onMenuPress();
   };
 
+  const handleLogout = async () => {
+    setTooltip(null);
+
+    try {
+      await removeToken();
+      router.replace("/(auth)/login");
+    } catch {
+      showToast("Impossible de supprimer la session. Réessayez.", "error");
+    }
+  };
+
   return (
     <View style={styles.safe}>
       <View style={styles.container}>
-        {/* Bouton du menu */}
+        {/* BOUTON MENU */}
         <View style={styles.left}>
           {tooltip === "menu" && (
-            <View
-              pointerEvents="none"
-              style={styles.tooltip}
-            >
+            <View pointerEvents="none" style={styles.tooltip}>
               <Text style={styles.tooltipText}>
-                {menuOpen
-                  ? "Fermer le menu"
-                  : "Ouvrir le menu"}
+                {menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
               </Text>
             </View>
           )}
@@ -66,11 +69,7 @@ export default function MonitoringHeader({
             onHoverIn={() => setTooltip("menu")}
             onHoverOut={() => setTooltip(null)}
             accessibilityRole="button"
-            accessibilityLabel={
-              menuOpen
-                ? "Fermer le menu"
-                : "Ouvrir le menu"
-            }
+            accessibilityLabel={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             accessibilityHint="Affiche ou masque les rubriques de navigation"
             hitSlop={8}
             style={({ pressed }) => [
@@ -79,24 +78,17 @@ export default function MonitoringHeader({
             ]}
           >
             <Ionicons
-              name={
-                menuOpen
-                  ? "close-outline"
-                  : "menu-outline"
-              }
+              name={menuOpen ? "close-outline" : "menu-outline"}
               size={28}
               color={COLORS.text}
             />
           </Pressable>
         </View>
 
-        {/* Titre et utilisateur */}
+        {/* TITRE ET UTILISATEUR */}
         <View style={styles.center}>
           {tooltip === "home" && (
-            <View
-              pointerEvents="none"
-              style={styles.tooltip}
-            >
+            <View pointerEvents="none" style={styles.tooltip}>
               <Text style={styles.tooltipText}>
                 Retourner à l&apos;accueil
               </Text>
@@ -123,11 +115,7 @@ export default function MonitoringHeader({
                 style={styles.homeIcon}
               />
 
-              <Text
-                style={styles.title}
-                numberOfLines={1}
-                ellipsizeMode="tail"
-              >
+              <Text style={styles.title} numberOfLines={1} ellipsizeMode="tail">
                 {title}
               </Text>
             </View>
@@ -142,8 +130,35 @@ export default function MonitoringHeader({
           </Pressable>
         </View>
 
-        {/* Logo */}
+        {/* DÉCONNEXION ET LOGO */}
         <View style={styles.right}>
+          <View style={styles.logoutContainer}>
+            {tooltip === "logout" && (
+              <View pointerEvents="none" style={styles.logoutTooltip}>
+                <Text style={styles.tooltipText}>Se déconnecter</Text>
+              </View>
+            )}
+
+            <Pressable
+              style={({ pressed }) => [
+                styles.logoutButton,
+                pressed && styles.pressed,
+              ]}
+              onPress={handleLogout}
+              onHoverIn={() => setTooltip("logout")}
+              onHoverOut={() => setTooltip(null)}
+              accessibilityLabel="Se déconnecter"
+              accessibilityRole="button"
+              hitSlop={8}
+            >
+              <Ionicons
+                name="log-out-outline"
+                size={22}
+                color={COLORS.white}
+              />
+            </Pressable>
+          </View>
+
           {logo ? (
             <Image
               source={logo}
@@ -153,10 +168,7 @@ export default function MonitoringHeader({
               accessibilityLabel="Logo Dry Forest"
             />
           ) : (
-            <View
-              style={styles.logoPlaceholder}
-              accessible={false}
-            />
+            <View style={styles.logoPlaceholder} accessible={false} />
           )}
         </View>
       </View>
