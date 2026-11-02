@@ -19,6 +19,30 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
 
+  // En-tête du formulaire
+  header: {
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: 20,
+  },
+
+  closeButton: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: COLORS.primaryLight,
+  },
+
+  closeText: {
+    color: COLORS.primaryDark,
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+
   iconContainer: {
     width: 50,
     height: 50,

@@ -1,17 +1,14 @@
-
 import React from "react";
 import {
   Modal,
   View,
   Text,
-  StyleSheet,
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
 } from "react-native";
 
-import { COLORS } from "@/constants/colors";
 import { styles } from "@/assets/css/formModal.style";
 
 interface FormModalProps {
@@ -62,5 +59,3 @@ export default function FormModal({
     </Modal>
   );
 }
-
-

@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import {
   View,
@@ -23,9 +24,6 @@ export default function HomePage() {
 
   const [showLogoutTooltip, setShowLogoutTooltip] = useState(false);
 
-  // ============================================================
-  // DÉCONNEXION
-  // ============================================================
 
   const handleLogout = async () => {
     setShowLogoutTooltip(false);
@@ -46,14 +44,12 @@ export default function HomePage() {
       resizeMode="cover"
     >
       <View style={styles.overlay}>
-        {/* BARRE SUPÉRIEURE */}
         <View style={styles.topBar}>
           <View>
             <Text style={styles.appName}>DRY FOREST</Text>
             <Text style={styles.appSubtitle}>Gestion forestière</Text>
           </View>
 
-          {/* BOUTON DÉCONNEXION */}
           <View style={styles.logoutContainer}>
             {showLogoutTooltip && (
               <View pointerEvents="none" style={styles.logoutTooltip}>
@@ -153,4 +149,5 @@ export default function HomePage() {
       </View>
     </ImageBackground>
   );
+
 }

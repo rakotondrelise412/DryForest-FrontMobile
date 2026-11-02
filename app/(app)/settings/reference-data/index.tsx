@@ -90,7 +90,6 @@ export default function ReferenceDataScreen() {
 
       <View style={styles.cardContent}>
         <Text style={styles.cardTitle}>{item.title}</Text>
-
         <Text style={styles.cardDescription}>
           {item.description}
         </Text>
@@ -110,7 +109,7 @@ export default function ReferenceDataScreen() {
         <Text style={styles.title}>Données de référence</Text>
 
         <Text style={styles.subtitle}>
-          Gérez les informations de référence de l'application DryForest.
+          Gérez les informations de référence de l&apos;application DryForest.
         </Text>
       </View>
 
@@ -124,4 +123,3 @@ export default function ReferenceDataScreen() {
     </View>
   );
 }
-

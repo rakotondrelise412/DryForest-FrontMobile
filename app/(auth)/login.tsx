@@ -45,7 +45,7 @@ export default function LoginScreen() {
                 <View style={styles.brandContainer}>
                   <Text style={styles.brandTitle}>Dry Forest</Text>
                   <Text style={styles.brandSubtitle}>
-                    Ensemble, restaurons nos forêts.
+                    Miaraka, andao arovantsika ny alantsika.
                   </Text>
                 </View>
 
@@ -53,7 +53,7 @@ export default function LoginScreen() {
 
                 <View style={styles.footer}>
                   <Text style={styles.footerText}>
-                    PROTÉGER • RESTAURER • PRÉSERVER
+                    MIARO • MAMBOLY • MIKOLOKOLO
                   </Text>
                   <Text style={styles.footerCopyright}>
                     © Dry Forest
