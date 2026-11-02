@@ -64,14 +64,14 @@ export default function HomePage() {
           contentContainerStyle={styles.content}
           showsVerticalScrollIndicator={false}
         >
-          <Text style={styles.welcome1}>BIENVENUE</Text>
-          <Text style={styles.welcome2}>dans</Text>
+          <Text style={styles.welcome1}>TONGASOA</Text>
+          <Text style={styles.welcome2}>ato amin ny</Text>
           <Text style={styles.welcome3}>Dry Forest</Text>
 
           <Text style={styles.description}>
-            Protégeons nos forêts et suivons
+            Andao harovantsika ny alantsika
             {"\n"}
-            ensemble les activités de terrain.
+            ary anadao arahintsika ny fivoarany
           </Text>
 
           <View style={styles.buttons}>
