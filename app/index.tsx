@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import {
   View,
@@ -11,6 +12,7 @@ import {
   Keyboard,
 } from "react-native";
 
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 
@@ -27,9 +29,10 @@ export default function LoginScreen() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const [showPassword, setShowPassword] = useState(false);
+
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-
   const [loginError, setLoginError] = useState("");
 
   const handleLogin = async () => {
@@ -69,21 +72,20 @@ export default function LoginScreen() {
         if (status === 401 || status === 403) {
           setUsernameError("Nom d'utilisateur ou mot de passe incorrect.");
           setPasswordError("Nom d'utilisateur ou mot de passe incorrect.");
-
           setLoginError("");
-          
+
         } else if (status === 404) {
           setUsernameError("Nom d'utilisateur introuvable.");
         } else if (status >= 500) {
           setLoginError(
-            "Une erreur est survenue sur le serveur. Veuillez réessayer.",
+            "Une erreur est survenue sur le serveur. Veuillez réessayer."
           );
         } else {
           setLoginError("Une erreur est survenue. Veuillez réessayer.");
         }
       } else {
         setLoginError(
-          "Impossible de contacter le serveur. Vérifiez votre connexion.",
+          "Impossible de contacter le serveur. Vérifiez votre connexion."
         );
       }
     } finally {
@@ -127,45 +129,52 @@ export default function LoginScreen() {
               value={username}
               onChangeText={(text) => {
                 setUsername(text);
-                if (usernameError) {
-                  setUsernameError("");
-                }
-                if (loginError) {
-                  setLoginError("");
-                }
+                if (usernameError) setUsernameError("");
+                if (loginError) setLoginError("");
               }}
               autoCapitalize="none"
               editable={!loading}
             />
+
             {usernameError !== "" && (
               <Text style={styles.errorText}>{usernameError}</Text>
             )}
 
-            <TextInput
+            {/* Champ mot de passe avec icône œil */}
+            <View
               style={[
-                styles.input,
-                passwordError !== "" && {
-                  borderWidth: 2,
-                  borderColor: "#ff0000",
-                },
+                styles.passwordContainer,
+                passwordError !== "" && styles.passwordContainerError,
               ]}
-              placeholder="Mot de passe"
-              placeholderTextColor="rgba(255,255,255,0.7)"
-              value={password}
-              onChangeText={(text) => {
-                setPassword(text);
+            >
+              <TextInput
+                style={styles.passwordInput}
+                placeholder="Mot de passe"
+                placeholderTextColor="rgba(255,255,255,0.7)"
+                value={password}
+                onChangeText={(text) => {
+                  setPassword(text);
 
-                if (passwordError) {
-                  setPasswordError("");
-                }
+                  if (passwordError) setPasswordError("");
+                  if (loginError) setLoginError("");
+                }}
+                secureTextEntry={!showPassword}
+                editable={!loading}
+              />
 
-                if (loginError) {
-                  setLoginError("");
-                }
-              }}
-              secureTextEntry
-              editable={!loading}
-            />
+              <TouchableOpacity
+                style={styles.eyeButton}
+                onPress={() => setShowPassword(!showPassword)}
+                disabled={loading}
+                activeOpacity={0.7}
+              >
+                <MaterialCommunityIcons
+                  name={showPassword ? "eye-off-outline" : "eye-outline"}
+                  size={24}
+                  color="#FFFFFF"
+                />
+              </TouchableOpacity>
+            </View>
 
             {passwordError !== "" && (
               <Text style={styles.errorText}>{passwordError}</Text>
