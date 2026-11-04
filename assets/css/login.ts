@@ -86,4 +86,42 @@ export default StyleSheet.create({
     textAlign: "center",
     fontWeight: "500",
   },
+
+  
+  // Conteneur du champ mot de passe
+  passwordContainer: {
+    width: "80%",
+    height: 50,
+    backgroundColor: "#F9AC5E",
+    borderRadius: 10,
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 20,
+    elevation: 2,
+  },
+
+  // Bordure rouge en cas d'erreur
+  passwordContainerError: {
+    borderWidth: 2,
+    borderColor: "#ff0000",
+  },
+
+  // Champ de saisie du mot de passe
+  passwordInput: {
+    flex: 1,
+    height: "100%",
+    paddingLeft: 15,
+    paddingRight: 5,
+    color: "#FFFFFF",
+    fontSize: 16,
+  },
+
+  // Bouton de l'icône œil
+  eyeButton: {
+    height: "100%",
+    paddingHorizontal: 15,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
 });
