@@ -1,23 +1,33 @@
-import axios from "axios";
-import { getToken } from "../utils/storage";
+
+import { create } from "axios";
+import { getToken } from "@/utils/storage";
 
 const API_URL = process.env.EXPO_PUBLIC_API_URL;
 
-if (!API_URL) {
-  throw new Error(
-    "EXPO_PUBLIC_API_URL est absente du fichier .env",
-  );
-}
-
-export const api = axios.create({
+export const api = create({
   baseURL: API_URL,
   headers: {
     "Content-Type": "application/json",
   },
 });
 
+const PUBLIC_ENDPOINTS = [
+  "/auth/mobilelogin",
+  "/auth/login",
+  "/auth/register",
+];
+
 api.interceptors.request.use(
   async (config) => {
+    const url = (config.url ?? "").split("?")[0];
+
+    const isPublicEndpoint = PUBLIC_ENDPOINTS.includes(url);
+
+    if (isPublicEndpoint) {
+      delete config.headers.Authorization;
+      return config;
+    }
+
     const token = await getToken();
 
     if (token) {
@@ -26,5 +36,5 @@ api.interceptors.request.use(
 
     return config;
   },
-  (error) => Promise.reject(error),
+  (error) => Promise.reject(error)
 );
