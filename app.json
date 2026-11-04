@@ -1,6 +1,9 @@
 {
   "expo": {
     "name": "dry-forest",
+    "updates": {
+      "enabled": false
+    },
     "slug": "dry-forest",
     "version": "1.0.0",
     "orientation": "portrait",
