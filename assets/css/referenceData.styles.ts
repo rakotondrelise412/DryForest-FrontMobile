@@ -1,7 +1,8 @@
+
 import { StyleSheet } from "react-native";
 import { COLORS } from "@/constants/colors";
 
-export const styles = StyleSheet.create({
+export const referenceDataStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.background,
@@ -69,7 +70,14 @@ export const styles = StyleSheet.create({
     elevation: 2,
   },
 
+  // Informations communes aux éléments
   roleInfo: {
+    flexDirection: "row",
+    alignItems: "center",
+    flex: 1,
+  },
+
+  genderInfo: {
     flexDirection: "row",
     alignItems: "center",
     flex: 1,
@@ -95,7 +103,19 @@ export const styles = StyleSheet.create({
     color: COLORS.primaryDark,
   },
 
+  genderName: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: COLORS.primaryDark,
+  },
+
   roleId: {
+    fontSize: 12,
+    color: COLORS.textPlaceholder,
+    marginTop: 4,
+  },
+
+  genderId: {
     fontSize: 12,
     color: COLORS.textPlaceholder,
     marginTop: 4,
@@ -117,11 +137,27 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
 
+  // Utilisé aussi pour le bouton de modification de Gender
+  actionButton: {
+    width: 38,
+    height: 38,
+    backgroundColor: COLORS.primaryVeryLight,
+    borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
   deleteButton: {
     width: 38,
     height: 38,
     backgroundColor: COLORS.errorLight,
     borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  loadingContainer: {
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },

@@ -18,7 +18,7 @@ const SCREEN_TITLES: Record<string, string> = {
   synchronization: "Synchronisation",
   "reference-data/index": "Données de référence",
   "reference-data/roles": "Rôles",
-  "reference-data/genders": "Genres",
+  "reference-data/gender": "Genres",
   "reference-data/species-types": "Types d'espèces",
   "reference-data/severities": "Gravités",
   "reference-data/zone-types": "Types de zone",
@@ -149,7 +149,7 @@ export default function SettingsLayout() {
 
       {/* Référentiel des genres */}
       <Drawer.Screen
-        name="reference-data/genders"
+        name="reference-data/gender"
         options={{
           title: "Genres",
           drawerItemStyle: { display: "none" },

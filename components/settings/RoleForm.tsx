@@ -12,7 +12,7 @@ import {
 import FormModal from "@/components/common/FormModal";
 
 import { Role, RoleFormData } from "@/models/role.model";
-import { styles } from "@/assets/css/roleForm.style";
+import { referenceFormStyles as styles } from "@/assets/css/referenceForm.styles";
 import { COLORS } from "@/constants/colors";
 
 interface RoleFormProps {

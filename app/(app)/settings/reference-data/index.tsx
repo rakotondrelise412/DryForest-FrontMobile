@@ -29,7 +29,7 @@ const REFERENCE_ITEMS: ReferenceItem[] = [
     title: "Genres",
     description: "Gestion des genres",
     icon: "people-outline",
-    route: "/(app)/settings/reference-data/genders",
+    route: "/(app)/settings/reference-data/gender",
   },
   {
     title: "Types d'espèces",

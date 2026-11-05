@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { COLORS } from "@/constants/colors";
 
-export const styles = StyleSheet.create({
+export const toastStyles = StyleSheet.create({
   container: {
     position: "absolute",
     top: 55,

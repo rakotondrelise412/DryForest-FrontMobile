@@ -2,7 +2,7 @@
 import { StyleSheet } from "react-native";
 import { COLORS } from "@/constants/colors";
 
-export const styles = StyleSheet.create({
+export const homeStyles = StyleSheet.create({
   bg: {
     flex: 1,
     backgroundColor: COLORS.primary,

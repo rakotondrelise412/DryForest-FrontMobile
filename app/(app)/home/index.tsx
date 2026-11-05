@@ -11,7 +11,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 
 import { removeToken } from "@/utils/storage";
-import { styles } from "@/assets/css/home";
+import { homeStyles as styles } from "@/assets/css/home";
 import { COLORS } from "@/constants/colors";
 import { useToast } from "@/components/common/ToastProvider";
 import HomeButton from "@/components/home/HomeButton";

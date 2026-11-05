@@ -1,26 +1,28 @@
+
 import { StyleSheet } from "react-native";
 import { COLORS } from "@/constants/colors";
 
-export const styles = StyleSheet.create({
+export const referenceFormStyles = StyleSheet.create({
   form: {
+    padding: 20,
     gap: 12,
   },
 
   label: {
-    color: COLORS.primaryDark,
-    fontWeight: "600",
     fontSize: 14,
+    fontWeight: "600",
+    color: COLORS.primaryDark,
   },
 
   input: {
-    backgroundColor: COLORS.white,
+    height: 48,
     borderWidth: 1,
-    borderColor: COLORS.inputBorder,
+    borderColor: COLORS.borderGray,
     borderRadius: 10,
     paddingHorizontal: 14,
-    paddingVertical: 12,
     fontSize: 15,
-    color: COLORS.textDark,
+    color: COLORS.text,
+    backgroundColor: COLORS.white,
   },
 
   inputError: {
@@ -30,20 +32,22 @@ export const styles = StyleSheet.create({
   errorText: {
     color: COLORS.error,
     fontSize: 13,
+    marginTop: 4,
   },
 
   submitButton: {
-    backgroundColor: COLORS.buttonBackground,
-    borderRadius: 10,
-    paddingVertical: 14,
-    alignItems: "center",
+    height: 48,
     marginTop: 10,
+    borderRadius: 10,
+    backgroundColor: COLORS.buttonBackground,
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   submitText: {
     color: COLORS.text,
-    fontWeight: "bold",
     fontSize: 15,
+    fontWeight: "bold",
   },
 
   disabled: {

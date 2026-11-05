@@ -3,7 +3,7 @@ import { Image, Pressable, Text, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 
-import { styles } from "@/assets/css/MonitoringHeader.styles";
+import { monitoringHeaderStyles as styles } from "@/assets/css/MonitoringHeader.styles";
 import { COLORS } from "@/constants/colors";
 import { removeToken } from "@/utils/storage";
 import { useToast } from "../common/ToastProvider";

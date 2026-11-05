@@ -10,7 +10,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { COLORS } from "../../constants/colors";
-import { styles } from "../../assets/css/login";
+import { loginStyles as styles } from "../../assets/css/login";
 import { useLogin } from "../../hooks/useLogin";
 import LoginForm from "../../components/forms/LoginForm";
 

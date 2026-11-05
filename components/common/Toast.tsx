@@ -1,5 +1,5 @@
 
-import { styles } from "@/assets/css/toast.style";
+import { toastStyles as styles } from "@/assets/css/toast.style";
 import React, { useEffect, useRef } from "react";
 import {
   Animated,

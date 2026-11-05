@@ -20,7 +20,7 @@ import RoleForm from "@/components/settings/RoleForm";
 import ConfirmDialog from "@/components/common/ConfirmDialog";
 
 import { COLORS } from "@/constants/colors";
-import { styles } from "@/assets/css/roles.style";
+import { referenceDataStyles as styles } from "@/assets/css/referenceData.styles";
 
 export default function RolesScreen() {
   const { showToast } = useToast();
