@@ -9,7 +9,7 @@ export const useSeverity = () => {
 
     const loadSeverities = useCallback( async (): Promise<void> => {
         try {
-            setLoading(true),
+            setLoading(true);
             setError(null);
 
             const severities = await SeverityService.findAll();

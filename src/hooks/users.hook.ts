@@ -11,7 +11,7 @@ export const useUsers = () =>{
 
     const loadUser = useCallback( async (): Promise<void> => {
         try {
-            setLoading(true),
+            setLoading(true);
             setError(null);
 
             const user = await UserService.findById(1);

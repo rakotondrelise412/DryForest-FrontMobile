@@ -1,5 +1,5 @@
 // src/hooks/zone.hook.ts
-import { useEffect, useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { Zone } from "../types/entities/zone.entity";
 import { ZoneDTO } from "../types/dto/zoneDTO.dto";
 import { isValidGeoJSON } from "../utils/geom";

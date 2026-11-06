@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useState } from "react"
 import { Species } from "../types/entities/species.entity";
 import { SpeciesService } from "../services/species.service";
 

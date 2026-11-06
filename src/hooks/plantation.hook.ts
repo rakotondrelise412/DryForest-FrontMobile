@@ -61,7 +61,7 @@ export const usePlantation = () =>{
             return {success: true, uuid};
         } catch (error: any) {
             const message = error instanceof Error ? error.message : "Erreur lors de la création de la plantation.";
-            if (error && (error as any).name == "BusinessError") {
+            if (error && (error as any).name === "BusinessError") {
                 setSubmitError(message);
 
             } else {

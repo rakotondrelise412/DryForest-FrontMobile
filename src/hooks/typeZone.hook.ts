@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useState } from "react"
 import { Type_zone } from "../types/entities/type_zone.entity"
 import { TypeZoneService } from "../services/typeZone.service";
 
@@ -6,7 +6,7 @@ import { TypeZoneService } from "../services/typeZone.service";
 export const useTypeZone = () => {
     const [typeZones, setTypeZones] = useState<Type_zone[]>([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<String | null>(null);
+    const [error, setError] = useState<string | null>(null);
 
     const loadTypeZone = useCallback(async (): Promise<void> => {
         try{

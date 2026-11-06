@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { SubPlot } from "../types/entities/subPlot.entity";
 import { SubPlotService } from "../services/subPlot.service";
 import { SubPlotDTO } from "../types/dto/subPlot.dto";
